@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:/admin
+Host:1.1.1.1.1.1.1.1.
+Sitemap:http://1.1.1.1.1.1.1.1./sitemap.xml

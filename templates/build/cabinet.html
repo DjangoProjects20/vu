@@ -1,0 +1,56 @@
+{% extends 'build/base.html'%}
+{% block content %}
+{%load static%}
+{% include 'build/menu_lk.html' %}
+<main class="main">
+  <section class="cabinet">
+    <div class="cabinet__wrap">
+      <img class="cabinet__photo" src="{{user.profile.img.url}}" alt="Фото">
+      <h2 class="cabinet__caption caption caption--small">{{user.profile.name}}</h2>
+      <a class="cabinet__button button" href="{%url 'prof'%}">Настройки профиля</a>
+      <ul class="cabinet__list list">
+        <li class="list__item">
+          <a class="list__item-link">Книги Шрилы Прабхупады</a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link">Полезные ссылки</a>
+        </li>
+      </ul>
+    </div>
+    <div class="cabinet__wrap">
+<!--     js-dropdown-toggle         добавить         здесь \/  для стрелочки вниз-->
+      <a style="text-decoration: none; color: #000;" class="cabinet__button cabinet__button--wide button ">Мои курсы</a>
+      
+      <ul class="cabinet__list list">
+<!--
+        <li class="list__item">
+          <a class="list__item-link js-dropdown-toggle" href="course.html">Обзор Шримад Бхагаватам</a>
+          <div class="list__item-content">
+            <p class="list__item-text text">01.04.2020 - 01.05.2020</p>
+            <a class="list__item-button button">Учебные материалы</a>
+          </div>
+        </li>
+        
+-->
+        
+        
+        {%for c in courses %}
+        <li class="list__item">
+          <a style="text-decoration: none; color: #fff;" class="list__item-link" href="{% url 'course_page' c.id_kurs%}">{{c.name}}</a>
+        </li>
+        {%endfor%}
+        
+        <a style="text-decoration: none; color: #000;" href="{% url 'courses_page'%}" class="cabinet__button cabinet__button--wide button ">Посмотреть новые курсы</a>
+
+      </ul>
+    </div>
+  </section>
+</main>
+
+{% include 'build/footer.html' %}
+{% endblock %}
+
+
+
+
+

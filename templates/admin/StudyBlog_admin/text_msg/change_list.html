@@ -1,0 +1,23 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+<!-- Override extrahead to add Chart.js -->
+{% block extrahead %}
+{{ block.super }}
+
+{% endblock %}
+
+{% block content %}
+<!-- <a style="border: 8px solid #417690; color: white; border-radius:20px; background-color:#417690;" href="{%url 'load_text_in_sender'%}" class="btn"> подготовить сообщение по выбраному курсу </a><br><br><br><br> -->
+
+<a style="border: 8px solid #417690; color: white; border-radius:20px; background-color:#417690;" href="{%url 'load_text_in_mass_sender'%}" class="btn"> массовая отправка</a><br><br><br><br>
+
+<!-- 
+<a style="border: 8px solid #417690; color: white; border-radius:20px; background-color:#417690;" href="{%url 'send_product'%}" class="btn"> разослать сообщения </a>
+ -->
+
+
+
+<br><br>
+{{ block.super }}
+{% endblock %}

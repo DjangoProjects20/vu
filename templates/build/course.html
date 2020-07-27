@@ -1,0 +1,142 @@
+{% extends 'build/base.html'%}
+{%load static%}
+{% block content %}
+{% include 'build/menu.html' %}
+<main class="main">
+  <article class="tutor article">
+    <img width="650" height="650" class="course__image article__image" src="{{course.img.url}}" alt="">
+    <div class="tutor__description article__description">
+      <h2 class="tutor__caption caption caption--small">
+      <!-- если поьзователь аутефицирован-->
+        
+        
+      {{teacher_mass.name}}
+      
+      
+     </h2>
+      <p class="tutor__text article__text text">
+        {{course.descrip}}
+      </p>
+      
+     
+      {%if user.is_authenticated%}
+       {% if not user.profile.name or not user.profile.familia or not user.profile.tel or user.profile.img == 'user_images/foto_empty.jpg' or  user.profile.pol == 3    %}
+     <h1 style="text-align: center; font-size:20px;"> Вам необходимо заполнить профиль  <a  class="course__button article__button button button--confirm" href="{%url 'prof' %}"><b>здесь</b></a>  для регистрации на курсах</h1>
+     {% endif%}
+     
+      {% if user.profile.familia and user.profile.tel and user.profile.img != 'user_images/foto_empty.jpg' and user.profile.pol != 3   %}
+    
+      <a style="text-decoration: none; color: #fff;" class="course__button article__button button button--confirm" href= "{%url 'reg_in_course' course.id %}">Пройти курс</a>
+     
+      {% endif%}
+       
+      {% endif%}<!-- если поьзователь аутефицирован-->
+      
+      <!-- если пользователь не аутефицирован-->
+       {%if not user.is_authenticated%}
+      
+      <a  class="course__button article__button button button--confirm" href="{%url 'register' %}"><b>Зарегистрируйтесь на сайте если хотите зарегистрироваться на курсах</b></a>
+      
+      
+       {% endif%}
+      <!-- если поьзователь не аутефицирован-->
+    </div>
+  </article>
+  
+  <!--+ Calendar------------------------------------------------------>
+<link href={% static 'lib/main.css'%} rel='stylesheet' />
+<script src={% static 'lib/main.js'%}></script>
+<script src={% static 'lib/locales-all.js'%}></script>
+
+
+
+   <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+       locale: 'ru',
+      //initialDate: '2020-06-12',
+      //initialView: 'timeGridWeek',
+      //nowIndicator: true,
+      headerToolbar: {
+        left: 'prev,next ',//today
+        center: 'title',
+        right: 'listMonth',//dayGridMonth,timeGridWeek,timeGridDay,listMonth,
+      },
+       
+     /*
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      selectable: true,
+      selectMirror: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+       */
+      initialView: 'listMonth',
+      //initialDate: '2020-06-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+       
+       
+      events: [
+        {%for item in day_event_mass %} // с помощью django выкачал массив для событий через линки выкачал id номера курса и имя учителя
+                   {
+                        
+                        title: '{{item.link.name}}, {{item.name}}, {{item.link.teacher_link.name}} ', 
+                        url: 'http://www.bhaktivedanta-center.ru/course_page/{{item.link.id}}',
+                        start: '{{item.date|date:"c"}}',
+                         //overlap: false,
+                        //display: 'background',
+                        color: '#97ED97',
+                        
+                    },
+                   {%endfor%}
+        
+         
+         
+        /* {
+          title: 'продвинутый курс',
+          url: 'http://151.248.121.197/course_page/9/',
+          start: '2020-07-12T20:00:00'    
+        },*/
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+<style>
+
+  body {
+    /*margin: 40px 10px;*/
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+/*
+  #calendar {
+    
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 40px; 
+  } 
+   
+   @media screen and (device-width: 500px) {
+    #calendar {
+    
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 10px; 
+  } 
+   }*/
+</style>
+   
+   
+<div id='calendar'></div>  
+<!-- - Calendar------------------------------------------------------>  
+  
+</main>
+{% include 'build/footer.html' %}
+{% endblock %}

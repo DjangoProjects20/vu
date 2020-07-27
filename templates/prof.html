@@ -1,0 +1,29 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags%}
+{% block main_section%}
+{%include 'build/menu.html'%}
+<div class="container">
+    <div class="row">
+       
+        <div class="col-11">
+            <div class="form-section">
+                <h4>{{user.username}} </h4>
+
+                <img  width="256" height="256" src="{{user.profile.img.url}}" alt="">
+            </div></div>
+            
+          
+        <div class="col-11">  
+            <h2>Изменить данные студента</h2>
+            <form action="" method="POST"  enctype="multipart/form-data">
+                {% csrf_token%}
+                {{img_profile|crispy}} 
+                <!--{{update_user|crispy}}-->
+                 <button type="submit" class="btn btn-outline-warning" > изменить</button>
+            </form></div>
+    </div>
+</div>
+<br><br><br>
+{%include 'build/footer.html'%}
+{% endblock main_section%}
+

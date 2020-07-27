@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Регистрация</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="{% static 'css/style.min.css'%}" rel="stylesheet">
+</head>
+<body>
+<header class="header js-header js-menu-closed">
+  <div class="header__wrap">
+    <a class="header__logo logo" href="index.html"></a>
+    <h1 class="header__caption caption">Центр образования Бхактиведанта</h1>
+    <button class="header__button toggle-button js-menu-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 2"><path d="M0 0h19.958v2H0z"/></svg>
+    </button>
+  </div>
+  <nav class="header__navigation navigation">
+    <ul class="menu">
+      <li class="menu__item">
+        <a class="menu__item-link" href="schedule.html">Расписание</a>
+      </li>
+      <li class="menu__item">
+        <a class="menu__item-link" href="courses.html">Курсы</a>
+      </li>
+      <li class="menu__item">
+        <a class="menu__item-link" href="tutors.html">Преподаватели</a>
+      </li>
+      <li class="menu__item">
+        <a class="menu__item-link" href="contacts.html">Контакты</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="main">
+  <section class="registration">
+    <h2 class="registration__text text">Регистрация откроет Вам доступ к&nbsp;личному кабинету с&nbsp;материалами
+      курсов, книгами Шрилы Прабхупады, ссылками на&nbsp;полезные ресурсы.<br>Также Вы всегда будете в&nbsp;курсе всех изменений в&nbsp;расписании, появления новых образовательных программ и&nbsp;ретритов.</h2>
+    <form class="registration__form form">
+      <p class="form__wrap">
+        <input class="input" id="name" type="text" placeholder=" " required>
+        <label class="form__label text" for="name">Ваше имя<sup>*</sup></label>
+      </p>
+      <p class="form__wrap">
+        <input class="input" id="surname" type="text" placeholder=" " required>
+        <label class="form__label text" for="surname">Ваша фамилия<sup>*</sup></label>
+      </p>
+      <p class="form__wrap">
+        <input class="input" id="spiritual-name" placeholder=" " type="text">
+        <label class="form__label text" for="spiritual-name">Ваше духовное имя</label>
+      </p>
+      <p class="form__wrap">
+        <input class="input" id="phone" type="tel" placeholder=" " required>
+        <label class="form__label text" for="phone">Ваш номер телефона<sup>*</sup></label>
+      </p>
+      <p class="form__wrap">
+        <input class="input" id="email" type="email" placeholder=" " required>
+        <label class="form__label text" for="email">Ваш email<sup>*</sup></label>
+      </p>
+      <p class="form__wrap">
+        <input class="input" id="social" type="url" placeholder=" ">
+        <label class="form__label text" for="social">Ваша страница ВКонтакте</label>
+      </p>
+      <p class="form__wrap form__wrap--wide">
+        <textarea class="input input--textarea" id="comment" placeholder=" "></textarea>
+        <label class="form__label text" for="comment">Откуда Вы узнали о центре?</label>
+      </p>
+      <p class="form__wrap">
+        <label class="form__label form__label--static text" for="photo">Ваше фото</label>
+        <input class="input input--file" id="photo" type="file">
+      </p>
+      <button class="form__button button button--confirm" type="submit">Отправить</button>
+    </form>
+  </section>
+</main>
+<footer class="footer">
+  <p class="footer__text text"><a class="footer__link" href="">Created by VrindaTeam</a></p>
+</footer>
+
+<script src="{% static 'js/menu.js%}"></script>
+</body>
+</html>

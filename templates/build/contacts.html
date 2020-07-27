@@ -1,0 +1,78 @@
+{% extends 'build/base.html'%}
+{% block content %}
+{%load static%}
+{% include 'build/menu.html' %}
+<main class="main">
+  <section class="contacts">
+    <div class="contacts__wrap">
+      <h2 class="contacts__caption caption caption--small">Наш адрес:</h2>
+      <address class="contacts__address text">
+        ул. Куусинена, 19А<br>
+        Крыльцо с белыми слонами<br>
+        станция метро Полежаевская, станция МЦК Зорге<br>
+        автобусы 608, 43Т<br>
+        остановка &laquo;Центральный дом культуры ВОС&raquo;
+      </address>
+      <div class="contacts__map">
+        <a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color: #eeeeee; font-size: 12px; position: absolute; top: 0;">Москва</a>
+        <a href="https://yandex.ru/maps/213/moscow/house/ulitsa_kuusinena_19a/Z04YcwZhS0AAQFtvfXt5dnVlbA==/?ll=37.511257%2C55.787968&utm_medium=mapframe&utm_source=maps&z=16" style="color: #eeeeee; font-size: 12px; position: absolute; top: 14px;">Улица Куусинена, 19А — Яндекс.Карты</a>
+        <iframe src="https://yandex.ru/map-widget/v1/-/CBFfNYG8WC" frameborder="0" allowfullscreen="true" style="position: relative;"></iframe>
+      </div>
+    </div>
+    <div class="contacts__wrap">
+      <h2 class="contacts__caption caption caption--small">Контакты для связи:</h2>
+      <ul class="contacts__list list">
+        <li class="list__item">
+          <a class="list__item-link" href="tel:87777777777">Управляющий центра:<br><u>+7 (777) 777-77-77</u></a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="tel:88888888888">Администратор:<br><u>+7 (888) 888-88-88</u></a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="mailto:sobhaktivedanta@gmail.com">E-mail:<br><u>sobhaktivedanta@gmail .com</u></a>
+        </li>
+      </ul>
+      <a class="contacts__button button">Написать нам</a>
+      <ul class="contacts__list contacts__list--small list">
+        <li class="list__item list__item--accented">
+          <a class="list__item-link" href="">Вопрос - Ответ</a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="">Юридическая информация</a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="">Пользовательское соглашение</a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="{% url 'glory'%}">Наша команда</a>
+        </li>
+      </ul>
+      <ul class="list social-list">
+        <li class="list__item">
+          <a class="list__item-link" href="" target="_blank" aria-label="Вконтакте">
+            <svg class="social-list__icon">
+              <use xlink:href="img/sprite.svg/#icon-vk"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="" target="_blank" aria-label="Instagram">
+            <svg class="social-list__icon">
+              <use xlink:href="img/sprite.svg/#icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="list__item">
+          <a class="list__item-link" href="" target="_blank" aria-label="Whatsapp">
+            <svg class="social-list__icon">
+              <use xlink:href="img/sprite.svg/#icon-whatsapp"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{% include 'build/footer.html' %}
+{% endblock %}
+

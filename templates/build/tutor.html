@@ -1,0 +1,26 @@
+{% extends 'build/base.html'%}
+{%load static%}
+{% block content %}
+{% include 'build/menu.html' %}
+<main class="main">
+  <article class="tutor article">
+    <img class="tutor__image article__image" src="{{teacher_mass.foto.url}}" alt="">
+    <div class="tutor__description article__description">
+      <h2 class="tutor__caption caption caption--small">
+      
+      {{teacher_mass.name}}
+      
+      
+     </h2>
+      <p class="tutor__text article__text text">
+         {{teacher_mass.inf_about_teacher}}
+      </p>
+      <a style="text-decoration: none; color: #fff;" class="tutor__button article__button button button--confirm">Курсы преподавателя</a>
+    </div>
+  </article>
+</main>
+{% include 'build/footer.html' %}
+{% endblock %}
+
+
+

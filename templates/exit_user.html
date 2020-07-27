@@ -1,0 +1,19 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags%}
+{% block main_section%}
+<div class="container">
+    <div class="row">
+      
+        <div class="col-12">
+                <br><br><br><br><br>
+                <div class="form-section">
+                    <h4>Вы успешно вышли из аккаунта</h4>
+                <a href="{%url 'auth_user'%}">войти в личный кабинет снова</a> или 
+                <a href="/">вернуться на главную страницу</a>
+                </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock main_section%}

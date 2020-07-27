@@ -1,0 +1,43 @@
+{%load static%}
+{% block content %}
+<!--- header--main---->
+ <header class="header header--main">
+  <div class="header__wrap">
+  
+    <a     style="text-decoration: none; color:#000;font-size:17px;" class="header__logo" href="/">
+    <h2 style="font-size:17px;" class="header__caption caption">Центр образования Бхактиведанта</h2></a>
+   
+  </div>
+  <img class="header__image" src="{% static 'img/main-image.jpg'%}" alt="">
+  <nav class="navigation">
+    <ul class="menu ">
+      <li class="menu__item">
+        <a    style="text-decoration: none; color:#000;" class="menu__item-link" href="{%url 'time_page'%}">Расписание</a>
+      </li>
+      <li class="menu__item">
+        <a   style="text-decoration: none; color:#000;" class="menu__item-link" href="{%url 'courses_page'%}">Курсы</a>
+      </li>
+      <li class="menu__item">
+     <a  style="text-decoration: none; color:#000;" class="menu__item-link" href="{%url 'teachers_page'%}">Преподаватели</a>
+      </li>
+      <li class="menu__item">
+       <a style="text-decoration: none; color:#000;" class="menu__item-link" href="{%url 'contacts'%}">Контакты</a>
+      </li>
+           {%if  user.is_authenticated%}
+       <li class="menu__item">
+        <a style="text-decoration: none; color:#000;" class="menu__item-link" href="{% url 'kabinet' user.id %}">Личный кабинет</a>
+          </li>
+        {%endif%}
+        
+<!--
+    {%if  user.is_authenticated%}
+        <li class="menu__item">
+        <a class="menu__item-link" href="exit_user">выйти</a>
+          </li>
+    {%endif%}
+-->
+    </ul>
+  </nav>
+</header>
+{% endblock %}
+ 

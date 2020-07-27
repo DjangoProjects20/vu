@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags%}
+{% block main_section%}
+{%include 'build/menu.html'%}
+<div class="main">
+<div class="container">
+    <div class="row">
+        <div class="col-11">
+                <p class="text-center">Регистрация откроет Вам доступ к личному кабинету с материалами курсов, книгами Шрилы Прабхупады, ссылками на полезные ресурсы.<br><br>
+Также Вы всегда будете в курсе всех изменений в расписании, появления новых образовательных программ и ретритов.</p>
+            <div class="form-section">
+               
+          
+                <h4>{{title}}</h4>
+                <form method="POST">
+                 {%csrf_token%}
+                 {{form|crispy}}<!-- as_p значит отобразить как параграф а  | crispy это фильтр для красивой формы -->
+                 <button type="submit" class="form__button button button--confirm" > отправить </button>
+
+                </form>
+                <hr>
+                уже зарегистрированы? <a style="text-decoration: none; color: #000;" href="{%url 'auth_user'%}">Войти в личный кабинет</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>    
+
+{%include 'build/footer.html'%}
+{% endblock main_section%}

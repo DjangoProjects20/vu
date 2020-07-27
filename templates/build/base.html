@@ -1,0 +1,48 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Центр образования Бхактиведанта</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="{% static 'css/style.min.css'%}" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
+  <link href="{% static 'main.css'%}" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/style.min.css'%}" rel="stylesheet">
+
+</head>
+<body>
+
+
+
+<!-- сообщения  -->
+ <section>
+    <div class="container">
+        <div class="row">
+        <div class="col-11">
+  {%if messages%}
+  {% for mess in messages %}
+  <br>
+  <div class="alert alert-success text-center">
+  {{mess}}
+    </div>
+  {%endfor%}
+  {%endif%} 
+       </div> 
+        </div>
+    </div>
+</section>
+<!-- сообщения  -->  
+{% block content %}
+{% endblock %}
+</body>
+<script src="{% static 'js/menu.js'%}"></script>
+
+<script src="{% static 'js/dropdown.js'%}"></script>
+</html>
+
+
+
+
+
+

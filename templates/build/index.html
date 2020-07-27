@@ -1,0 +1,50 @@
+{% extends 'build/base.html'%}
+{% block content %}
+{%load static%}
+{% include 'build/header.html' %}
+
+  {% block main_section%}
+  {% endblock main_section%}
+  
+<main class="main">
+  
+ 
+   <article class="main__article article">
+    <div class="article__description">
+      <p class="article__text text">
+        Вся слава Его Божественной милости А.Ч. Бхактиведанта Свами Шриле Прабхупаде!<br>
+        Мы рады приветствовать Вас в Центре образования "Бхактиведента".<br>
+        Здесь Вы сможете получить всестороннее вайшнавское образование.<br>
+        Зарегистрируйтесь, чтобы записаться на курс и получить доступ к учебным материалам!
+      </p>
+    </div>
+  </article>
+  
+<!--
+  {%if not user.is_authenticated%}
+        
+         <a class="main__button button button--confirm" href="{% url 'register'%}">Регистрация</a>
+         <br>
+         <a class="main__button button button--confirm" href="auth_user">Вход</a>
+        {%endif%}
+-->
+ 
+  {%if not user.is_authenticated%}
+        <br>
+         <a style="text-decoration: none; color: #fff;" class="main__button button button--confirm"  href="{% url 'auth_user'%}">Начать обучение</a>
+        
+        {%endif%}
+        
+  {%if user.is_authenticated%}
+         <br>
+         <a style="text-decoration: none; color: #fff;" class="main__button button button--confirm" style="background-color: #ccc;" href="{% url 'courses_page'%}">Начать обучение</a>
+        
+    {%endif%}
+
+</main>
+
+
+{% include 'build/footer.html' %}
+{% endblock %}
+
+

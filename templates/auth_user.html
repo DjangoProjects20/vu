@@ -1,0 +1,32 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags%}
+{% block main_section%}
+ 
+
+<div class="container">
+    <div class="row">
+     
+        <div class="col-11">
+         <br> <br> <br> <br> <br>
+<div class="form-section">
+    <h4>Авторизация на сайте</h4>
+    <form method="POST">
+     {%csrf_token%}
+     {{form|crispy}}<!-- as_p значит отобразить как параграф а  | crispy это фильтр для красивой формы -->
+     
+     
+     <button type="submit" class="btn btn-outline-warning" > Войти</button>
+     
+     
+     <br>
+     Если у Вас еще нет аккаунта, зарегистрируйтесь<br>
+    <a style="text-decoration: none; color: #fff;" class="main__button button button--confirm" href="{% url 'register'%}">Регистрация</a>
+    </form>
+</div>
+        
+        </div>
+        
+    </div>
+</div>
+
+{% endblock main_section%}
